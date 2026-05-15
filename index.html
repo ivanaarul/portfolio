@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Stack Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      line-height:1.6;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* Navbar */
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      background:#111827;
+      padding:15px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    nav h2{
+      color:#38bdf8;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    /* Hero Section */
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex-direction:column;
+      padding:20px;
+      background:linear-gradient(to right,#0f172a,#1e293b);
+    }
+
+    .hero h1{
+      font-size:55px;
+      margin-bottom:10px;
+    }
+
+    .hero span{
+      color:#38bdf8;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:20px auto;
+      color:#cbd5e1;
+    }
+
+    .btn{
+      padding:12px 28px;
+      background:#38bdf8;
+      border:none;
+      border-radius:8px;
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    .btn:hover{
+      background:#0ea5e9;
+      transform:scale(1.05);
+    }
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+      font-size:38px;
+      color:#38bdf8;
+    }
+
+    /* About */
+    .about{
+      text-align:center;
+    }
+
+    .about p{
+      max-width:850px;
+      margin:auto;
+      color:#cbd5e1;
+    }
+
+    /* Skills */
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+
+    .skill{
+      background:#1e293b;
+      padding:25px;
+      text-align:center;
+      border-radius:12px;
+      transition:0.3s;
+      border:1px solid transparent;
+    }
+
+    .skill:hover{
+      transform:translateY(-8px);
+      border-color:#38bdf8;
+    }
+
+    /* Projects */
+    .projects-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .project-card{
+      background:#1e293b;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:20px;
+    }
+
+    .project-content h3{
+      margin-bottom:10px;
+      color:#38bdf8;
+    }
+
+    .project-content p{
+      color:#cbd5e1;
+      margin-bottom:15px;
+    }
+
+    /* Contact */
+    .contact form{
+      max-width:600px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .contact input,
+    .contact textarea{
+      padding:15px;
+      border:none;
+      border-radius:10px;
+      background:#1e293b;
+      color:white;
+      outline:none;
+    }
+
+    .contact button{
+      padding:14px;
+      border:none;
+      background:#38bdf8;
+      color:white;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:16px;
+    }
+
+    .contact button:hover{
+      background:#0ea5e9;
+    }
+
+    /* Footer */
+    footer{
+      background:#111827;
+      text-align:center;
+      padding:20px;
+      color:#94a3b8;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .hero h1{
+        font-size:38px;
+      }
+
+      nav{
+        padding:15px 20px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h2>Portfolio</h2>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Hello, I'm <span>Ivana</span></h1>
+
+    <p>
+      Full Stack Developer passionate about building modern websites,
+      backend APIs, and database-driven applications.
+    </p>
+
+    <a href="#projects" class="btn">View Projects</a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about">
+      <p>
+        I am a Full Stack Developer skilled in frontend and backend
+        technologies. I enjoy creating responsive web applications
+        using HTML, CSS, JavaScript, React.js, Node.js, Express.js,
+        and databases like MongoDB/MySQL.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="skill">
+        <h3>HTML</h3>
+      </div>
+
+      <div class="skill">
+        <h3>CSS</h3>
+      </div>
+
+      <div class="skill">
+        <h3>JavaScript</h3>
+      </div>
+
+      <div class="skill">
+        <h3>React.js</h3>
+      </div>
+
+      <div class="skill">
+        <h3>Node.js</h3>
+      </div>
+
+      <div class="skill">
+        <h3>Express.js</h3>
+      </div>
+
+      <div class="skill">
+        <h3>MongoDB</h3>
+      </div>
+
+      <div class="skill">
+        <h3>MySQL</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-container">
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Project">
+
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+
+          <p>
+            Responsive personal portfolio built using HTML, CSS,
+            JavaScript and deployed online.
+          </p>
+
+          <a href="#" class="btn">Live Demo</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="Project">
+
+        <div class="project-content">
+          <h3>Task Manager App</h3>
+
+          <p>
+            Full-stack MERN application with authentication
+            and MongoDB database integration.
+          </p>
+
+          <a href="#" class="btn">Live Demo</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Project">
+
+        <div class="project-content">
+          <h3>E-Commerce Website</h3>
+
+          <p>
+            Online shopping platform with backend API,
+            payment integration, and product database.
+          </p>
+
+          <a href="#" class="btn">Live Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+
+    <form id="contactForm">
+
+      <input type="text" placeholder="Your Name" required>
+
+      <input type="email" placeholder="Your Email" required>
+
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Your Portfolio | Full Stack Developer</p>
+  </footer>
+
+  <script>
+    // Contact Form Alert
+    document.getElementById("contactForm")
+      .addEventListener("submit", function(event){
+
+      event.preventDefault();
+
+      alert("Message Sent Successfully!");
+
+      this.reset();
+    });
+
+    // Simple Fade Animation on Scroll
+    const cards = document.querySelectorAll('.project-card, .skill');
+
+    window.addEventListener('scroll', () => {
+      cards.forEach(card => {
+        const position = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+
+        if(position < screenPosition){
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }
+      });
+    });
+
+    cards.forEach(card => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(40px)";
+      card.style.transition = "0.6s";
+    });
+
+  </script>
+
+</body>
+</html>
